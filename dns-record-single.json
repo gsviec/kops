@@ -1,0 +1,18 @@
+{
+  "Comment": "Create/Update a CNAME record for a standalone Deployment",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "jenkins.dailyanimalpics.com",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": " a1ba69c02df0611e789f802c98da66c9-1855392748.us-east-1.elb.amazonaws.com "
+          }
+        ]
+      }
+    }
+  ]
+}
