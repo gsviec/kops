@@ -45,7 +45,7 @@ spec:
         tier: frontend
     spec:
       containers:
-              - image: duythien/wordpress:v1
+      - image: duythien/wordpress:v6
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
@@ -58,9 +58,11 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
-        volumeMounts:
-        - name: wordpress-persistent-storage
-          mountPath: /var/www/html
+        # volumeMounts:
+        # - name: wordpress-persistent-storage-uploadz
+        #   mountPath: /var/www/html
+        # - name: wordpress-persistent-storage
+        #   mountPath: /var/www/html
       volumes:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:

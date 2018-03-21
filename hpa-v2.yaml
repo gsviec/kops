@@ -1,0 +1,44 @@
+apiVersion: v1
+items:
+- apiVersion: autoscaling/v2beta1
+  kind: HorizontalPodAutoscaler
+  metadata:
+    creationTimestamp: 2018-03-09T08:36:10Z
+    name: php-apache
+    namespace: default
+    resourceVersion: "1971"
+    selfLink: /apis/autoscaling/v2beta1/namespaces/default/horizontalpodautoscalers/php-apache
+    uid: eb07c415-2374-11e8-b035-022ba84a12ee
+  spec:
+    maxReplicas: 10
+    metrics:
+    - resource:
+        name: cpu
+        targetAverageUtilization: 50
+      type: Resource
+    minReplicas: 1
+    scaleTargetRef:
+      apiVersion: extensions/v1beta1
+      kind: Deployment
+      name: php-apache
+  status:
+    conditions:
+    - lastTransitionTime: 2018-03-09T08:36:40Z
+      message: the HPA controller was able to get the target's current scale
+      reason: SucceededGetScale
+      status: "True"
+      type: AbleToScale
+    - lastTransitionTime: 2018-03-09T08:36:40Z
+      message: 'the HPA was unable to compute the replica count: unable to get metrics
+        for resource cpu: unable to fetch metrics from API: the server could not find
+        the requested resource (get pods.metrics.k8s.io)'
+      reason: FailedGetResourceMetric
+      status: "False"
+      type: ScalingActive
+    currentMetrics: null
+    currentReplicas: 1
+    desiredReplicas: 0
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

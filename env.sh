@@ -28,3 +28,16 @@ export DOMAIN_NAME_ZONE_ID=$(aws route53 list-hosted-zones \
        | jq -r '.HostedZones[] | select(.Name=="'${DOMAIN_NAME}'.") | .Id' \
        | sed 's/\/hostedzone\///') # Leave as-is
 
+
+kops create cluster \
+    --name=${CLUSTER_FULL_NAME} \
+    --zones=${CLUSTER_AWS_AZ} \
+    --master-size="t2.medium" \
+    --node-size="t2.small" \
+    --node-count="2" \
+    --dns-zone=${DOMAIN_NAME} \
+    --ssh-public-key="~/.ssh/id_rsa.pub" \
+    --kubernetes-version="1.9.1"
+
+
+#kops edit ig nodes 

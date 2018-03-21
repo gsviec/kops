@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: server-git
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - name: git-volume
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: git-volume
+    gitRepo:
+      repository: git@github.com:gsviec/video.git
