@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: basic-ingress
+  labels:
+    k8s-addon: ingress-nginx.addons.k8s.io
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
+
+spec:
+  rules:
+  - host:  s4.dailyanimalpics.com
+    http:
+      paths:
+      - path: /test01/
+        backend:
+          serviceName: minio-service
+          servicePort: 80
+      - path: /test01/ansistrano-flow.png
+        backend:
+          serviceName: minio-service
+          servicePort: 80
