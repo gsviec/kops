@@ -9,3 +9,7 @@ Traning Kubernetes on aws
 - [Getting Unstuck with EBS: Primer on how to use Docker and EBS](https://portworx.com/ebs-stuck-attaching-state-docker-containers/)
 
 - [Structuring for Microservice Projects with Kubernetes](https://blog.containership.io/micronetes)
+
+
+## Kube
+- Using a private Docker Registry with Kubernetes https://blog.cloudhelix.io/using-a-private-docker-registry-with-kubernetes-f8d5f6b8f646
